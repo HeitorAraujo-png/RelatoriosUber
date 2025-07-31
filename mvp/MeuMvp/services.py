@@ -3,26 +3,10 @@ from openpyxl import *
 from django.conf import settings
 import os
 
-# * cd PYTHON\testes\Testando\SomaNoCsv
- 
 # ! = IMPORTANTE
 # ? = OQUE FAZ
 # TODO = A FAZER
 # * = AVISOS
-
-
-# class Relatorios:
-    
-#     def __init__(self, files):
-#         self.fileG = self.fileF = pd.read_csv(files)
-    
-#     def Separa(self):
-#         Geral = 'RelatorioGeral.xlsx'
-#         Financeiro = 'RelatorioFinanceiro.xlsx'
-#         self.fileG.to_excel(os.path.join(settings.MEDIA_ROOT, Geral), index=False)
-#         self.fileF.to_excel(os.path.join(settings.MEDIA_ROOT, Financeiro), index=False)
-#         return Geral, Financeiro
-
 
 class Geral:
     
@@ -51,10 +35,10 @@ class Geral:
         return 'DeuCerto.xlsx'
             
     def LGPD(self):
-        conteudo = os.listdir('arquivos/')
-        arquivos = [item for item in conteudo if os.path.isfile(os.path.join(settings.MEDIA_URL, item))]
+        conteudo = os.listdir(f'{os.path.join(settings.MEDIA_ROOT)}')
+        arquivos = [item for item in conteudo]
         for i in arquivos:
-            os.remove(f'{os.path.join(settings.MEDIA_URL, i)}')
+            os.remove(f'{os.path.join(settings.MEDIA_ROOT, i)}')
             
             
         

@@ -8,6 +8,10 @@ from .services import *
 def Geracao(request):
     relatorio = relatorioValores = None
     
+    if 'baixou' in request.POST:
+        null = Geral(None, None)
+        null.LGPD()
+        return render(request, 'mvp/index.html')
     if request.method == 'POST':
         post = request.FILES['ArquivoCsv']
         fileDS = default_storage.save(f'{post}',post)
@@ -18,10 +22,8 @@ def Geracao(request):
             relatorio = 'erro'
         
         relatorio = Files.Tratamento()
-        relatorioValores = f'{settings.MEDIA_URL}{Financeiro}'
+        # relatorioValores = f'{settings.MEDIA_URL}{Financeiro}'
         
     return render(request, 'mvp/index.html', {
             'relatorio': f'{settings.MEDIA_URL}{relatorio}' if relatorio else '',
-            'relatorioVALORES': relatorioValores
-    }
-                  )
+            'relatorioVALORES': f'{settings.MEDIA_URL}{relatorioValores}' if relatorioValores else ''})

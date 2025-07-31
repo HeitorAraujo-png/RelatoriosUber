@@ -27,15 +27,16 @@
                     </div>
                     <input type="file" name="ArquivoCsv"><br><br>
                     {% if not relatorio %}
-                    <button type="submit" onclick="">Enviar</button><br>
+                    <button type="submit">Enviar</button><br>
                     {% endif %}
                     <div class="links">
                         {% if relatorio %}
                         <div class="r1">
-                            <p><a href="{{ relatorio }}" download>Relatorio Geral</a></p>
+                            <p><a href="{{ relatorio }}" id="baixou" download>Relatorio Geral</a></p>
                         </div>
+                            <button type="submit" name="baixou">OK</button>
                         <div class="r2">
-                            <p><a href="{{ relatorioVALORES }}" download>Relatorio Financeiro</a></p>
+                            <p><a href="{{ relatorioVALORES }}"  download>Relatorio Financeiro</a></p>
                         </div>
                         {% endif %}
                     </div>

@@ -28,14 +28,14 @@
 
 .r1 {
     position: absolute;
-    margin-top: -18px;
+    margin-top: -10px;
     left: 80%;
     transform: translate(-50%, -50%);
 }
 
 .r2 {
     position: absolute;
-    margin-top: -18px;
+    margin-top: -30px;
     right: 80%;
     transform: translate(50%, -50%);
 }
